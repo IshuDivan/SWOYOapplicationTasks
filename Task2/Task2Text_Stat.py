@@ -5,7 +5,7 @@
 
 import os
 def in_russian_alphabet(s):
-    alphabet="àáâãäå¸æçèéêëìíîïðñòóôõö÷øùúûüýþÿÀÁÂÃÄÅ¨ÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞß"
+    alphabet="Ã Ã¡Ã¢Ã£Ã¤Ã¥Â¸Ã¦Ã§Ã¨Ã©ÃªÃ«Ã¬Ã­Ã®Ã¯Ã°Ã±Ã²Ã³Ã´ÃµÃ¶Ã·Ã¸Ã¹ÃºÃ»Ã¼Ã½Ã¾Ã¿Ã€ÃÃ‚ÃƒÃ„Ã…Â¨Ã†Ã‡ÃˆÃ‰ÃŠÃ‹ÃŒÃÃŽÃÃÃ‘Ã’Ã“Ã”Ã•Ã–Ã—Ã˜Ã™ÃšÃ›ÃœÃÃžÃŸ"
     flag=False
     for i in alphabet:
         if i==s:
@@ -19,11 +19,11 @@ def in_english_alphabet(s):
             flag=True
     return flag
 def make_it_index(c):
-    smal1="àáâãäå¸æçèéêëìíîïðñòóôõö÷øùúûüýþÿ"
+    smal1="Ã Ã¡Ã¢Ã£Ã¤Ã¥Â¸Ã¦Ã§Ã¨Ã©ÃªÃ«Ã¬Ã­Ã®Ã¯Ã°Ã±Ã²Ã³Ã´ÃµÃ¶Ã·Ã¸Ã¹ÃºÃ»Ã¼Ã½Ã¾Ã¿"
     for i in range(len(smal1)):
         if c==smal1[i]:
             return smal1[i]
-    big1="ÀÁÂÃÄÅ¨ÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞß"
+    big1="Ã€ÃÃ‚ÃƒÃ„Ã…Â¨Ã†Ã‡ÃˆÃ‰ÃŠÃ‹ÃŒÃÃŽÃÃÃ‘Ã’Ã“Ã”Ã•Ã–Ã—Ã˜Ã™ÃšÃ›ÃœÃÃžÃŸ"
     for i in range(len(smal1)):
         if c==big1[i]:
             return smal1[i]
@@ -46,7 +46,7 @@ def text_stat(filename):
     number_of_words=0
     paragraph_amount=1
     bilingual_word_amount=0
-    truealphabet="àáâãäå¸æçèéêëìíîïðñòóôõö÷øùúûüýþÿabcdefghijklmnopqrstuwxyz"
+    truealphabet="Ã Ã¡Ã¢Ã£Ã¤Ã¥Â¸Ã¦Ã§Ã¨Ã©ÃªÃ«Ã¬Ã­Ã®Ã¯Ã°Ã±Ã²Ã³Ã´ÃµÃ¶Ã·Ã¸Ã¹ÃºÃ»Ã¼Ã½Ã¾Ã¿abcdefghijklmnopqrstuwxyz"
     flag_for_letters = {l: 0 for i, l in enumerate(truealphabet)}
     frequency_of_letters = {l: 0 for i, l in enumerate(truealphabet)} 
     number_of_letters = {l: 0 for i, l in enumerate(truealphabet)} 
@@ -102,7 +102,10 @@ def text_stat(filename):
                     bilingual_word_amount+=1
                 number_of_words+=1
     for i in frequency_of_letters:
-        frequency_of_letters[i]=frequency_of_letters[i]/number_of_words
+        if(number_of_words>0):
+            frequency_of_letters[i]=frequency_of_letters[i]/number_of_words
+        else:
+            frequency_of_letters[i]=0
     
     final_vocabulary={}
 
