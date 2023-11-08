@@ -12,7 +12,7 @@ def in_russian_alphabet(s):
             flag=True
     return flag
 def in_english_alphabet(s):
-    alphabet="abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ"
+    alphabet="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     flag=False
     for i in alphabet:
         if i==s:
@@ -27,11 +27,11 @@ def make_it_index(c):
     for i in range(len(smal1)):
         if c==big1[i]:
             return smal1[i]
-    smal2="abcdefghijklmnopqrstuwxyz"
+    smal2="abcdefghijklmnopqrstuvwxyz"
     for i in range(len(smal2)):
         if c==smal2[i]:
             return smal2[i]
-    big2="ABCDEFGHIJKLMNOPQRSTUWXYZ"
+    big2="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     for i in range(len(smal2)):
         if c==big2[i]:
             return smal2[i]
@@ -46,7 +46,7 @@ def text_stat(filename):
     number_of_words=0
     paragraph_amount=1
     bilingual_word_amount=0
-    truealphabet="абвгдеёжзийклмнопрстуфхцчшщъыьэюяabcdefghijklmnopqrstuwxyz"
+    truealphabet="абвгдеёжзийклмнопрстуфхцчшщъыьэюяabcdefghijklmnopqrstuvwxyz"
     flag_for_letters = {l: 0 for i, l in enumerate(truealphabet)}
     frequency_of_letters = {l: 0 for i, l in enumerate(truealphabet)} 
     number_of_letters = {l: 0 for i, l in enumerate(truealphabet)} 
