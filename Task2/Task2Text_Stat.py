@@ -1,7 +1,7 @@
-
-# -*- coding: cp1251 -*-
+ 
 # "A word" we define for the purpose of this exercise as a string of only kirillic and/or latin letters(numbers don't count as letters). 
 # All letters will be stored as non-capitalized. Request vocab['A'] wouldn't work, only vocab['a']. The reason is aestetics
+
 
 import os
 def in_russian_alphabet(s):
@@ -55,10 +55,9 @@ def text_stat(filename):
     not_empty_paragraph_flag=0
     current_char='a'
     current_state=0
+#    current_word=""
     while(current_char!=''):
-
         current_char=txt.read(1)
-
         if(current_char!='\n')and(current_char!=' '):
             not_empty_paragraph_flag=1
         if(current_char=='\n'):
@@ -69,11 +68,13 @@ def text_stat(filename):
         if(current_state==0):
             russian_flag=0
             english_flag=0
+#            current_word=""
 
             if(in_russian_alphabet(current_char))or(in_english_alphabet(current_char)):
                 for i in flag_for_letters:
                     flag_for_letters[i]=0
                 current_state=1
+#                current_word+=current_char
 
                 flag_for_letters[make_it_index(current_char)]=1
                 number_of_letters[make_it_index(current_char)]+=1
@@ -88,6 +89,7 @@ def text_stat(filename):
 
                 flag_for_letters[make_it_index(current_char)]=1
                 number_of_letters[make_it_index(current_char)]+=1
+#                current_word+=current_char
 
                 if(in_russian_alphabet(current_char)):
                     russian_flag=1
@@ -101,12 +103,12 @@ def text_stat(filename):
                 if(english_flag==1)and(russian_flag==1):
                     bilingual_word_amount+=1
                 number_of_words+=1
+#                print(current_word)
     for i in frequency_of_letters:
         if(number_of_words>0):
             frequency_of_letters[i]=frequency_of_letters[i]/number_of_words
         else:
             frequency_of_letters[i]=0
-    
     final_vocabulary={}
 
 
@@ -120,5 +122,5 @@ def text_stat(filename):
     return final_vocabulary
         
     
-#vocab=text_stat('text.txt')
-#print(vocab)
+vocab=text_stat('text.txt')
+print(vocab)
