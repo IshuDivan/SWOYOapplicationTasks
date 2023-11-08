@@ -121,6 +121,5 @@ def text_stat(filename):
 
     return final_vocabulary
         
-    
-vocab=text_stat('text.txt')
-print(vocab)
+#vocab=text_stat('text.txt')
+#print(vocab)
